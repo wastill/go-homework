@@ -1,0 +1,9 @@
+[GIN-debug] POST   /muti-upload              --> go-homework/go-gin.JSONP.func1 (4 handlers)
+[GIN-debug] POST   /upload                   --> go-homework/go-gin.JSONP.func2 (4 handlers)
+[GIN-debug] GET    /cookie                   --> go-homework/go-gin.JSONP.func3 (4 handlers)
+[GIN-debug] GET    /JSONP                    --> go-homework/go-gin.JSONP.func4 (4 handlers)
+[GIN-debug] GET    /json                     --> go-homework/go-gin.JSONP.func5 (4 handlers)
+[GIN-debug] GET    /purejson                 --> go-homework/go-gin.JSONP.func6 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
