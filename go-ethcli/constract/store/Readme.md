@@ -34,3 +34,14 @@ solc --abi --bin --optimize --overwrite -o ./build/ ./contracts/Store.sol
 abigen --bin=./build/Store.bin --abi=./build/Store.abi --pkg=store --out=./store/store.go
 ```
 
+## 解决npm报错
+
+```shell
+sudo chown -R $USER /usr/local/lib/node_modules
+```
+## 安装ganache
+```shell
+npm install ganache --global
+# 启动ganache
+ganache-cli
+```
