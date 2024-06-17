@@ -1,10 +1,8 @@
 package go_ethcli
 
-import (
-	"testing"
-)
+import "testing"
 
-func TestNewClient(t *testing.T) {
+func TestDeployStore(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -13,26 +11,12 @@ func TestNewClient(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			NewClient()
+			DeployStore()
 		})
 	}
 }
 
-func TestAccount(t *testing.T) {
-	tests := []struct {
-		name string
-	}{
-		// TODO: Add test cases.
-		{"TestAccount"},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			Account()
-		})
-	}
-}
-
-func TestGolemErc20(t *testing.T) {
+func TestLoadStore(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -41,12 +25,12 @@ func TestGolemErc20(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			GolemErc20()
+			LoadStore()
 		})
 	}
 }
 
-func TestNewWallet(t *testing.T) {
+func TestWriteStore(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -55,12 +39,12 @@ func TestNewWallet(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			NewWallet()
+			WriteStore()
 		})
 	}
 }
 
-func TestGenKeyStore(t *testing.T) {
+func TestStoreCode(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -69,12 +53,12 @@ func TestGenKeyStore(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			GenKeyStore()
+			StoreCode()
 		})
 	}
 }
 
-func TestImportKeyStore(t *testing.T) {
+func TestStoreEvent(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -83,12 +67,12 @@ func TestImportKeyStore(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ImportKeyStore()
+			StoreEvent()
 		})
 	}
 }
 
-func TestCheckAddress(t *testing.T) {
+func TestPublishStoreEvent(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
@@ -97,7 +81,7 @@ func TestCheckAddress(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			CheckAddress()
+			PublishStoreEvent()
 		})
 	}
 }

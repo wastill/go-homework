@@ -11,12 +11,13 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	token "go-homework/go-ethcli/constract"
+	token "go-homework/go-ethcli/constract/erc20"
 	"golang.org/x/crypto/sha3"
 	"log"
 	"math"
 	"math/big"
 	"os"
+	"regexp"
 )
 
 func NewClient() {
@@ -183,4 +184,41 @@ func ImportKeyStore() {
 		log.Fatalf("Failed to import key: %v", err)
 	}
 	fmt.Println(importECDSA.Address.Hex())
+}
+
+func CheckAddress() {
+	//  正则校验
+	re := regexp.MustCompile("^0x[0-9a-fA-F]{40}$")
+
+	fmt.Printf("regexp is valid: %v\n", re.MatchString("0x323b5d4c32345ced77393b3530b1eed0f346429d")) // is valid: true
+	fmt.Printf("regexp is valid: %v\n", re.MatchString("0xZYXb5d4c32345ced77393b3530b1eed0f346429d")) // is valid: false
+
+	// 通过是否包含字节码校验
+
+	client, err := ethclient.Dial("https://cloudflare-eth.com")
+	if err != nil {
+		log.Fatal(err)
+	}
+	// 0x Protocol Token (ZRX) smart contract address
+	address := common.HexToAddress("0xe41d2489571d322189246dafa5ebde1f4699f498")
+	bytecode, err := client.CodeAt(context.Background(), address, nil) // nil is latest block
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	isContract := len(bytecode) > 0
+	fmt.Println(bytecode)
+
+	fmt.Printf("is contract: %v\n", isContract) // is contract: true
+
+	// a random user account address
+	address1 := common.HexToAddress("0x8e215d06ea7ec1fdb4fc5fd21768f4b34ee92ef4")
+	bytecode1, err := client.CodeAt(context.Background(), address1, nil) // nil is latest block
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	isContract = len(bytecode1) > 0
+
+	fmt.Printf("is contract: %v\n", isContract) // is contract: false
 }
